@@ -1,0 +1,33 @@
+Customers ||--o{ Orders : "places"
+Orders }o--|| Order_Items : "contains"
+Order_Items }o--|| Products : "includes"
+
+Customers {
+  *customer_id (PK)
+  first_name
+  last_name
+  email
+  phone
+}
+
+Orders {
+  *order_id (PK)
+  customer_id (FK)
+  order_date
+  total_amount
+}
+
+Order_Items {
+  *order_item_id (PK)
+  order_id (FK)
+  product_id (FK)
+  quantity
+  unit_price
+}
+
+Products {
+  *product_id (PK)
+  product_name
+  category
+  price
+}
